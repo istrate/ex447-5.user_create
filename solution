@@ -1,0 +1,30 @@
+Q5. Create  users  and apply password and other setting .
+ - clone the repository  
+ - there are  two file in repository  , one playbook name is create_user.yml and second user_list.yml 
+ - add user and use uid , firstname,midname,lastname which is already written in user_list.yml  file for every users. 
+ - And  generate  6 digit random password and apply for user and  store password on same path into the file  /path/$(user)-password.txt 
+
+#######################################################################################################################################################3
+    
+    
+---
+- name: create user 
+  hosts: et
+  tasks:
+  vars_files:
+    - exusers.yml
+  vars:
+    - password: "{{ lookup('password','/home/ansible/file-{{ item.name }} length=6 chars=digits') }}"  
+  tasks:
+    - name: create user
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        state: present
+        shell: /bin/bash
+        comment: "{{ item.first | upper }} {{ item.middle | capitalize }} {{ item.last | capitalize }} "
+        password: "{{ password | password_hash ('sha512') }}"    
+                                        ####### "{{ password | password_hash ('sha512' , 'mysaltname') }}" -- if asked to provide salt
+        update_password: on_create
+      loop: "{{ users }}"
+
