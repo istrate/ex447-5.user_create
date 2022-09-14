@@ -4,7 +4,7 @@ Q5. Create  users  and apply password and other setting .
  - add user and use uid , firstname,midname,lastname which is already written in user_list.yml  file for every users. 
  - And  generate  6 digit random password and apply for user and  store password on same path into the file  /path/$(user)-password.txt 
 
-#######################################################################################################################################################3
+#######################################################################################################################################################
     
     
 ---
@@ -27,4 +27,10 @@ Q5. Create  users  and apply password and other setting .
                                         ####### "{{ password | password_hash ('sha512' , 'mysaltname') }}" -- if asked to provide salt
         update_password: on_create
       loop: "{{ users }}"
+
+
+========================================================================================================================================================
+This playbook should create users and fenerate a file whcih have password of 6 random digits
+[ansible@ansible ~]$ cat /home/ansible/file-bobby
+749461
 
