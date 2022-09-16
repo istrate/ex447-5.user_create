@@ -1,6 +1,6 @@
 Q5. Create  users  and apply password and other setting .
  - clone the repository  
- - there are  two file in repository  , one playbook name is create_user.yml and second users.yml 
+ - there are  two file in repository  , one playbook name is create_user.yml and second exusers.yml 
  - add user and use uid , firstname,midname,lastname which is already written in user.yml  file for every users. 
  - And  generate  6 digit random password and apply for user and  store password on same path into the file  /home/ansible/file-$(user) 
 
