@@ -1,4 +1,4 @@
-myusers:
+users:
    - name: ravi
      uid: 1010
      first: ravi
