@@ -1,0 +1,31 @@
+users:
+  - name: ravi
+    uid: 1010
+    first: ravi
+    last: sharma
+    middle: exam
+
+  - name: dani
+    uid: 1011
+    first: dani
+    last: godman
+    middle: flash
+
+  - name: bruce
+    uid: 1012
+    first: wayne
+    last: bat
+    middle: man
+
+
+  - name: john
+    uid: 1014
+    first: lee
+    last: cooper
+    middle: sheldon
+
+  - name: leonard
+    uid: 1015
+    first: leonard
+    last: hofstader
+    middle: keney
