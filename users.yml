@@ -17,7 +17,6 @@ users:
     last: bat
     middle: man
 
-
   - name: john
     uid: 1014
     first: lee
