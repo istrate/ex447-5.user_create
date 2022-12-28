@@ -1,0 +1,27 @@
+---
+- name: Create users advanced topic
+  hosts: home
+  vars_files:
+    - users.yml
+
+  tasks:
+    - name: List users
+      debug:
+        msg: "{{ item.name }}"
+      loop: "{{ users }}"
+
+    - name: Create password and password file
+      set_fact:
+        password: "{{ lookup('ansible.builtin.password', './file_{{ item.name }} length=6 chars=digits') }}"
+      delegate_to: localhost
+      loop: "{{ users }}"
+
+    - name: Create users
+      user:
+        name: "{{ item.name }}"
+        uid: "{{ item.uid }}"
+        state: present
+        comment: "{{ item.first | capitalize }} {{ item.middle | capitalize }} {{ item.last | capitalize }}"
+        password: "{{ lookup('file', './file_{{ item.name }}') | password_hash('sha512', 'examsalt') }}"
+        update_password: on_create
+      loop: "{{ users }}"
