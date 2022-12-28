@@ -9,10 +9,10 @@ Q5. Create  users  and apply password and other setting .
     
 ---
 - name: create user 
-  hosts: et
+  hosts: home
   tasks:
   vars_files:
-    - exusers.yml
+    - users.yml
   vars:
     - password: "{{ lookup('password','/home/ansible/file-{{ item.name }} length=6 chars=digits') }}"  
   tasks:
