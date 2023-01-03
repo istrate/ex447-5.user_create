@@ -1,2 +1,3 @@
 ---
-- name: Create users
+- name: Create users 
+  hosts: home
