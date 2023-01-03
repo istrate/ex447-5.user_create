@@ -1,5 +1,5 @@
 ---
-- name: Create users advanced topic
+- name: Create users
   hosts: home
   vars_files:
     - users.yml
